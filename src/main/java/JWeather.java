@@ -1,8 +1,16 @@
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class JWeather {
+
+    private static double parseTemperatureFromJson(String json) {
+        JsonParser jsonParser = new JsonParser();
+        JsonObject jsonObject = jsonParser.parse(json).getAsJsonObject();
+        return jsonObject.getAsJsonObject("main").get("temp").getAsDouble();
+    }
 
     public static void main(String[] args) {
 
@@ -25,8 +33,5 @@ public class JWeather {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-    private static double parseTemperatureFromJson(String json) {
-        return Double.parseDouble(json.split("\"temp\":")[1].split(",")[0]);
     }
 }
