@@ -23,16 +23,6 @@ public class JWeather {
         Request request = new Request.Builder()
                 .url(apiUrl)
                 .build();
-        /*try {
-            Response response = client.newCall(request).execute();
-            if (response.isSuccessful()) {
-                String responseBody = response.body().string();
-                double temperature = parseTemperatureFromJson(responseBody);
-                System.out.println("Temperature in " + city + ": " + temperature + "°C");
-            } else {
-                System.out.println("Error: " + response.code() + " - " + response.message());
-            }
-        } */
 
         try (Response response = client.newCall(request).execute()){
 
