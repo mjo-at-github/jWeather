@@ -8,9 +8,7 @@ Returns the temperature and feels-like temperature for a given city.
 
 You can run this project using Maven.
 
-Run the package command
-
-Then at the command line type:
+Run Maven's package command and then at the command line type:
 
 `java -jar .\target\jWeather-1.0-SNAPSHOT.jar Hamburg`
 
