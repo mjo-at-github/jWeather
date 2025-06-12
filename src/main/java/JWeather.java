@@ -34,13 +34,9 @@ public class JWeather {
                 .build();
 
         try (Response response = client.newCall(request).execute()){
-
             if (response.isSuccessful()) {
                 assert response.body() != null;
                 String responseBody = response.body().string();
-
-                // System.out.println(responseBody);
-
                 double temperature = parseTemperatureFromJson(responseBody);
                 double feels_like = parseFeelsLikeFromJson(responseBody);
                 System.out.println("The temperature in " + city + " is " + temperature + "°C." + " Feels like " + feels_like + "°C.");
@@ -48,9 +44,6 @@ public class JWeather {
                 System.out.println("Error: " + response.code() + " - " + response.message());
             }
         }
-
-        catch (Exception ignored) {
-
-        }
+        catch (Exception ignored) {}
     }
 }
