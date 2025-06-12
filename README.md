@@ -6,7 +6,7 @@ Returns the temperature and feels-like temperature for a given city.
 
 ### Usage
 
-You can run this project using java.
+You can run this project using JRE 21.
 
 At the command line type:
 
