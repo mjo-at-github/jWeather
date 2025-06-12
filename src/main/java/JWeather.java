@@ -18,7 +18,14 @@ public class JWeather {
 
     public static void main(String[] args) {
 
-        String apiKey = "e8afda2e61d4d6272f9313ee6637c5e5";
+        String apiKey = System.getenv("OPENWEATHER_API_KEY");
+        
+        if (apiKey == null || apiKey.isEmpty()) {
+        System.err.println("ERROR: OPENWEATHER_API_KEY environment variable not set.");
+        System.exit(1);
+        apiKey = "";
+        }
+        
         String city = args[0];
         String apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
         OkHttpClient client = new OkHttpClient();
