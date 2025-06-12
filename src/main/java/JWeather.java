@@ -19,7 +19,7 @@ public class JWeather {
     public static void main(String[] args) {
 
         String apiKey = "e8afda2e61d4d6272f9313ee6637c5e5";
-        String city = "Hamburg";
+        String city = args[0];
         String apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=metric";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
